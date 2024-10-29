@@ -25,6 +25,9 @@ public class WhenLoginPageTest {
     @Test
     public void TestLoginPage() {
         steps.pageOpen();
+        steps.clickLoginLink();
+        steps.writeEmail("test@test.com");
+        steps.writePassword("test");
         steps.clickLoginBtn();
     }
 
