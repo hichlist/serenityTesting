@@ -21,14 +21,15 @@ public class WhenLoginPageTest {
 
     @Managed(driver = "chrome")
     WebDriver driver;
+    //Test login: test@test.com, test password: test
+
+    private String email = "test@test.com";
+    private String pass = "test";
 
     @Test
     public void TestLoginPage() {
         steps.pageOpen();
-        steps.clickLoginLink();
-        steps.writeEmail("test@test.com");
-        steps.writePassword("test");
-        steps.clickLoginBtn();
+        steps.clickLoginLink(email, pass);
     }
 
 }

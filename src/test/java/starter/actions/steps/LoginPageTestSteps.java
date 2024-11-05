@@ -1,9 +1,12 @@
 package starter.actions.steps;
 
 import net.serenitybdd.annotations.Step;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import starter.actions.pages.LoginPageTest;
 
 public class LoginPageTestSteps {
+    private static final Logger log = LoggerFactory.getLogger(LoginPageTestSteps.class);
     LoginPageTest loginPageTest;
 
     @Step
@@ -12,22 +15,10 @@ public class LoginPageTestSteps {
     }
 
     @Step
-    public void clickLoginLink(){
-        loginPageTest.clickLoginLink();
-    }
-
-    @Step
-    public void writeEmail(String email){
-        loginPageTest.writeEmail(email);
-    }
-
-    @Step
-    public void writePassword(String pass){
-        loginPageTest.writePassword(pass);
-    }
-
-    @Step
-    public void clickLoginBtn(){
-        loginPageTest.clickLoginBtn();
+    public void clickLoginLink(String email, String pass){
+        loginPageTest.getLoginLink().click();
+        loginPageTest.getInputEmail().sendKeys(email);
+        loginPageTest.getInputPass().sendKeys(pass);
+        loginPageTest.getLoginButton().click();
     }
 }
