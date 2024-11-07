@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
 import starter.actions.steps.LoginPageTestSteps;
+import starter.actions.steps.ProfilePageTestSteps;
 
 @ExtendWith(SerenityJUnit5Extension.class)
 public class WhenLoginPageTest {
@@ -17,19 +18,33 @@ public class WhenLoginPageTest {
     Actor actor;
 
     @Steps
-    LoginPageTestSteps steps;
+    LoginPageTestSteps loginSteps;
+    @Steps
+    ProfilePageTestSteps profileSteps;
 
     @Managed(driver = "chrome")
     WebDriver driver;
-    //Test login: test@test.com, test password: test
 
+    //Test login: test@test.com, test password: test
     private String email = "test@test.com";
     private String pass = "test";
 
     @Test
     public void TestLoginPage() {
-        steps.pageOpen();
-        steps.clickLoginLink(email, pass);
+        loginSteps.pageOpen();
+        loginSteps.loginWebSite(email, pass);
+//        profileSteps.checkProfile();
+//        profileSteps.checkStats();
+//        profileSteps.checkHistory();
+//        profileSteps.checkSettings();
+    }
+
+    @Test
+    public void TestProfilePage() {
+        profileSteps.checkProfile();
+        profileSteps.checkStats();
+        profileSteps.checkHistory();
+        profileSteps.checkSettings();
     }
 
 }

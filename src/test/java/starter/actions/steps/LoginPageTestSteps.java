@@ -15,7 +15,7 @@ public class LoginPageTestSteps {
     }
 
     @Step
-    public void clickLoginLink(String email, String pass){
+    public void loginWebSite(String email, String pass){
         loginPageTest.getLoginLink().click();
         loginPageTest.getInputEmail().sendKeys(email);
         loginPageTest.getInputPass().sendKeys(pass);
